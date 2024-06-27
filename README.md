@@ -1,4 +1,4 @@
-# stable-diffusion-pytorch
+# Stable Diffusion
 
 [Open in Colab](https://colab.research.google.com/github/CrypticOwl5503/stable-diffusion/blob/master/demo.ipynb)
 
