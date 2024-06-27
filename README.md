@@ -2,6 +2,30 @@
 
 [Open in Colab](https://colab.research.google.com/github.com/CrypticOwl5503/stable-diffusion/blob/master/demo.ipynb)
 
+## General Overview
+
+Stable Diffusion combines ideas from diffusion models and deep learning to generate high-quality images from textual prompts or other images. It operates on the principle of simulating the gradual diffusion of noise in a probabilistic manner to generate realistic images.
+
+## Results
+
+### Text to Image
+
+![Result1](screenshots/dogfootball.png)
+
+Prompt: Dog playing football
+
+![Result1](screenshots/man_on_horse.png)
+
+Prompt: Man on a horse
+
+### Image to Image
+
+Prompt:
+![Result1](screenshots/sketch-mountains-input.jpg)
+
+Result:
+![Result1](screenshots/mountains-3.png)
+
 ## Dependencies
 
 * PyTorch
@@ -105,3 +129,4 @@ Generate image with custom size:
 prompts = ["a photograph of an astronaut riding a horse"]
 images = pipeline.generate(prompts, height=512, width=768)
 ```
+
