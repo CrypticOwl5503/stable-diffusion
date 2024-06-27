@@ -1,21 +1,5 @@
 # stable-diffusion-pytorch
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kjsman/stable-diffusion-pytorch/blob/main/demo.ipynb)
-
-Yet another PyTorch implementation of [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release).
-
-I tried my best to make the codebase minimal, self-contained, consistent, hackable, and easy to read. Features are pruned if not needed in Stable Diffusion (e.g. Attention mask at CLIP tokenizer/encoder). Configs are hard-coded (based on Stable Diffusion v1.x). Loops are unrolled when that shape makes more sense.
-
-Despite of my efforts, I feel like [I cooked another sphagetti](https://xkcd.com/927/). Well, help yourself!
-
-Heavily referred to following repositories. Big kudos to them!
-
-* [divamgupta/stable-diffusion-tensorflow](https://github.com/divamgupta/stable-diffusion-tensorflow)
-* [CompVis/stable-diffusion](https://github.com/CompVis/stable-diffusion)
-* [huggingface/transformers](https://github.com/huggingface/transformers)
-* [crowsonkb/k-diffusion](https://github.com/crowsonkb/k-diffusion)
-* [karpathy/minGPT](https://github.com/karpathy/minGPT)
-
 ## Dependencies
 
 * PyTorch
@@ -38,13 +22,9 @@ stable-diffusion-pytorch(-main)/
 │  ├─ samplers/
 └  ┴─ ...
 ```
-*Note that checkpoint files included in `data.zip` [have different license](#license) -- you should agree to the license to use checkpoint files.*
-
 ## How to Use
 
 Import `stable_diffusion_pytorch` as submodule.
-
-Here's some example scripts. You can also read the docstring of `stable_diffusion_pytorch.pipeline.generate`.
 
 Text-to-image generation:
 ```py
@@ -76,24 +56,6 @@ prompts = ["a photograph of an astronaut riding a horse"]
 images = pipeline.generate(prompts, uncond_prompts, seed=42)
 ```
 
-Preload models (you will need enough VRAM):
-```py
-from stable_diffusion_pytorch import model_loader
-models = model_loader.preload_models('cuda')
-
-prompts = ["a photograph of an astronaut riding a horse"]
-images = pipeline.generate(prompts, models=models)
-```
-
-If you get OOM with above code but have enough RAM (not VRAM), you can move models to GPU when needed
-and move back to CPU when not needed:
-```py
-from stable_diffusion_pytorch import model_loader
-models = model_loader.preload_models('cpu')
-
-prompts = ["a photograph of an astronaut riding a horse"]
-images = pipeline.generate(prompts, models=models, device='cuda', idle_device='cpu')
-```
 
 Image-to-image generation:
 ```py
@@ -141,9 +103,3 @@ Generate image with custom size:
 prompts = ["a photograph of an astronaut riding a horse"]
 images = pipeline.generate(prompts, height=512, width=768)
 ```
-
-## LICENSE
-
-All codes on this repository are licensed with MIT License. Please see LICENSE file.
-
-Note that checkpoint files of Stable Diffusion are licensed with [CreativeML Open RAIL-M](https://huggingface.co/spaces/CompVis/stable-diffusion-license) License. It has use-based restriction caluse, so you'd better read it.
