@@ -129,7 +129,3 @@ Generate image with custom size:
 prompts = ["a photograph of an astronaut riding a horse"]
 images = pipeline.generate(prompts, height=512, width=768)
 ```
-<<<<<<< HEAD
-
-=======
->>>>>>> 508ecd52de7471ed7266ad1619cc13ee816b92b9
