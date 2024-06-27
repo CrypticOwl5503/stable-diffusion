@@ -1,6 +1,6 @@
 # stable-diffusion-pytorch
 
-[Open in Colab](https://colab.research.google.com/github.com/CrypticOwl5503/stable-diffusion/blob/master/demo.ipynb)
+[Open in Colab](https://colab.research.google.com/github/CrypticOwl5503/stable-diffusion/blob/master/demo.ipynb)
 
 ## Dependencies
 
